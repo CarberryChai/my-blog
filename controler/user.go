@@ -2,12 +2,12 @@ package controler
 
 import (
 	"github.com/gin-gonic/gin"
-	"my-blog/model"
+	"my-blog/service"
 	"net/http"
 )
 
-func UserLogin(ctx *gin.Context) {
-	var user model.Login
+func Login(ctx *gin.Context) {
+	var user service.Login
 	if err := ctx.ShouldBind(&user); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return

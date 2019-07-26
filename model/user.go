@@ -1,6 +1,10 @@
 package model
 
-type Login struct {
-	Name string `form:"name" json:"name" binding:"required"`
-	Password string `form:"password" json:"password" binding:"required"`
+import "github.com/jinzhu/gorm"
+
+type User struct {
+	gorm.Model
+	UserName string
+	PasswordDigest string
+	Avatar string `gorm:"size:1000"`
 }
