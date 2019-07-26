@@ -12,6 +12,6 @@ func Init() *gin.Engine {
 		ctx.String(http.StatusOK, "Hello World!")
 	})
 	// login
-	router.POST("/login", controler.Login)
+	router.POST("/register", controler.Register)
 	return router
 }
