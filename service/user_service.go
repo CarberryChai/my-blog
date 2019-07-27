@@ -20,11 +20,19 @@ func (user *UserRegister)Valid()  *serializer.Response{
 		}
 	}
 	count := 0
-	model.DB.Model(&model.User{}).Where("user_name = ?", user.Nickname).Count(&count)
+	model.DB.Model(&model.User{}).Where("user_name = ?", user.UserName).Count(&count)
 	if count > 0 {
 		return &serializer.Response{
 			Code:4001,
 			Msg:"用户名已注册",
+		}
+	}
+	count = 0
+	model.DB.Model(&model.User{}).Where("nickname = ?", user.Nickname).Count(&count)
+	if count > 0 {
+		return &serializer.Response{
+			Code:4001,
+			Msg:"昵称已注册",
 		}
 	}
 	return nil
