@@ -8,10 +8,14 @@ import (
 
 func Init() *gin.Engine {
 	router := gin.Default()
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.String(http.StatusOK, "Hello World!")
-	})
-	// login
-	router.POST("/register", controler.Register)
+	api := router.Group("/api")
+	{
+		api.GET("/", func(ctx *gin.Context) {
+			ctx.String(http.StatusOK, "Hello World!")
+		})
+		// login
+		api.POST("/register", controler.Register)
+		api.POST("/login", controler.Login)
+	}
 	return router
 }
