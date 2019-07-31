@@ -8,17 +8,22 @@ import (
 	"log"
 )
 
+type JSON map[string]string
+
 var DB *gorm.DB
+var Config JSON
+
 func SetupDatabase() {
 	content, err := ioutil.ReadFile("env.json")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	var data map[string]interface{}
+	var data JSON
 	err = json.Unmarshal(content, &data)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
+	Config = data
 	db, err := gorm.Open("mysql", data["mysql"])
 	if err != nil {
 		panic(err)

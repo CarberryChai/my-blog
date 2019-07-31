@@ -1,5 +1,5 @@
 package model
 
-func migration()  {
+func migration() {
 	DB.AutoMigrate(&User{})
 }

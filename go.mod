@@ -5,6 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go v0.43.0 // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190724012636-11b2859924c1 // indirect
+	github.com/gbrlsnchs/jwt/v3 v3.0.0-beta.1
 	github.com/gin-gonic/gin v1.4.0
 	github.com/google/pprof v0.0.0-20190723021845-34ac40c74b70 // indirect
 	github.com/jinzhu/gorm v1.9.10
@@ -17,6 +18,6 @@ require (
 	golang.org/x/mobile v0.0.0-20190719004257-d2bd2a29d028 // indirect
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
 	golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e // indirect
-	golang.org/x/tools v0.0.0-20190725161231-2e34cfcb95cb // indirect
+	golang.org/x/tools v0.0.0-20190729092621-ff9f1409240a // indirect
 	google.golang.org/grpc v1.22.1 // indirect
 )
