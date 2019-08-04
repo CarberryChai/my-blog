@@ -23,9 +23,9 @@ func Register(ctx *gin.Context) {
 		return
 	}
 	if err := user.Register(); err != nil {
-		ctx.JSON(200, err)
+		ctx.JSON(http.StatusOK, err)
 	} else {
-		ctx.JSON(200, serializer.Response{Msg: "注册成功"})
+		ctx.JSON(http.StatusOK, serializer.Response{Msg: "注册成功"})
 	}
 }
 
@@ -37,7 +37,7 @@ func Login(ctx *gin.Context) {
 	}
 	u, err := user.Login()
 	if err != nil {
-		ctx.JSON(200, err)
+		ctx.JSON(http.StatusOK, err)
 		return
 	}
 	secret := model.Config["secret"]
@@ -59,7 +59,7 @@ func Login(ctx *gin.Context) {
 			Msg:  "登录失败",
 		})
 	} else {
-		ctx.JSON(200, serializer.Response{
+		ctx.JSON(http.StatusOK, serializer.Response{
 			Data: serializer.User{
 				UserName: u.UserName,
 				Nickname: u.Nickname,
