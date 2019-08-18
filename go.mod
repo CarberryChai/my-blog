@@ -10,6 +10,7 @@ require (
 	github.com/go-redis/redis v6.15.3+incompatible
 	github.com/google/pprof v0.0.0-20190723021845-34ac40c74b70 // indirect
 	github.com/jinzhu/gorm v1.9.10
+	github.com/joho/godotenv v1.3.0 // indirect
 	github.com/lib/pq v1.2.0 // indirect
 	github.com/mattn/go-sqlite3 v1.11.0 // indirect
 	github.com/stretchr/testify v1.3.0

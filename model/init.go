@@ -1,30 +1,16 @@
 package model
 
 import (
-	"encoding/json"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"io/ioutil"
-	"log"
+	"os"
 )
 
-type JSON map[string]string
-
 var DB *gorm.DB
-var Config JSON
 
 func SetupDatabase() {
-	content, err := ioutil.ReadFile("env.json")
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-	var data JSON
-	err = json.Unmarshal(content, &data)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-	Config = data
-	db, err := gorm.Open("mysql", data["mysql"])
+	mysqlConf := os.Getenv("MYSQL_CONF")
+	db, err := gorm.Open("mysql", mysqlConf)
 	if err != nil {
 		panic(err)
 	}
